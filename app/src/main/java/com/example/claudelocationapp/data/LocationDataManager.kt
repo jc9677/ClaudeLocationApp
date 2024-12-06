@@ -3,16 +3,18 @@ package com.example.claudelocationapp.data
 import android.location.Location
 import kotlinx.coroutines.*
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 object LocationDataManager {
     private val locations = mutableListOf<LocationData>()
     private var lastUploadTime: Long = 0
 
-    fun addLocation(location: Location) {
+    fun addLocation(location: Location, activity: String = "UNKNOWN") {
         val locationData = LocationData(
             latitude = location.latitude,
             longitude = location.longitude,
-            timestamp = System.currentTimeMillis()
+            timestamp = System.currentTimeMillis(),
+            activity = activity
         )
         locations.add(locationData)
         checkAndUpload()
@@ -39,6 +41,7 @@ object LocationDataManager {
     data class LocationData(
         val latitude: Double,
         val longitude: Double,
-        val timestamp: Long
+        val timestamp: Long,
+        val activity: String
     )
 }
