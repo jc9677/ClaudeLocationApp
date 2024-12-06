@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Digital Ocean Settings">
+        <EditTextPreference
+            android:key="do_access_key"
+            android:title="Access Key"
+            android:summary="Digital Ocean Spaces Access Key" />
+
+        <EditTextPreference
+            android:key="do_secret_key"
+            android:title="Secret Key"
+            android:summary="Digital Ocean Spaces Secret Key"
+            android:password="true" />
+
+        <EditTextPreference
+            android:key="do_bucket_name"
+            android:title="Bucket Name"
+            android:summary="Digital Ocean Space Name" />
+
+        <EditTextPreference
+            android:key="do_region"
+            android:title="Region"
+            android:summary="Digital Ocean Space Region"
+            android:defaultValue="nyc3" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Tracking Settings">
+        <SwitchPreference
+            android:key="auto_start"
+            android:title="Start on Boot"
+            android:summary="Automatically start tracking when device boots"
+            android:defaultValue="true" />
+
+        <EditTextPreference
+            android:key="min_distance"
+            android:title="Minimum Distance"
+            android:summary="Minimum distance (meters) between location updates"
+            android:inputType="number"
+            android:defaultValue="20" />
+
+        <EditTextPreference
+            android:key="upload_interval"
+            android:title="Upload Interval"
+            android:summary="How often to upload data (minutes)"
+            android:inputType="number"
+            android:defaultValue="60" />
+    </PreferenceCategory>
+</PreferenceScreen>
